@@ -1,6 +1,6 @@
 {
     "name": "Mixcloud Tracklist",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "manifest_version": 2,
     "description": "Display the tracklist on Mixcloud Cloudcast pages",
     "homepage_url": "https://github.com/adlawson/ext-mixcloud",
