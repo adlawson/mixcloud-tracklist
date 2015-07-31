@@ -57,7 +57,7 @@ onDocumentReady(function () {
         if (data.sections.length > 0) {
             var html = render(data);
             var parentElement = parentElements[0];
-            insertHtml(parentElement, html)
+            insertHtml(parentElement, html);
 
             var toggleButton = document.getElementsByClassName(constants.CLASS_TOGGLE)[0];
             var tracklistContainer = document.getElementsByClassName(constants.CLASS_TRACKLIST)[0];
