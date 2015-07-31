@@ -1,6 +1,6 @@
 {
     "name": "ext-mixcloud",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Display the tracklist on Mixcloud Cloudcast pages",
     "private": true,
     "main": "src/index.js",
