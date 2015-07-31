@@ -10,13 +10,12 @@
         "128": "img/icon-128.png"
     },
     "permissions": [
-        "https://www.mixcloud.com/*",
-        "https://mixcloud.com/*"
+        "https://www.mixcloud.com/*"
     ],
     "content_scripts": [
         {
             "js": ["build/chrome.min.js"],
-            "matches": ["*://www.mixcloud.com/*/*", "*://mixcloud.com/*/*"],
+            "matches": ["*://www.mixcloud.com/*"],
             "run_at": "document_start"
         }
     ]

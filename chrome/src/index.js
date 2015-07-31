@@ -48,11 +48,16 @@ function toggleTracklist(toggle, tracklist) {
 }
 
 onDocumentReady(function () {
+    var parentElements = document.querySelectorAll(constants.QUERY_CONTAINER);
+    if (parentElements.length === 0) {
+        return;
+    }
+
     fetch(window.location.pathname, function (data) {
         if (data.sections.length > 0) {
             var html = render(data);
-            var parentElement = document.querySelectorAll(constants.QUERY_CONTAINER)[0];
-            insertHtml(parentElement, html);
+            var parentElement = parentElements[0];
+            insertHtml(parentElement, html)
 
             var toggleButton = document.getElementsByClassName(constants.CLASS_TOGGLE)[0];
             var tracklistContainer = document.getElementsByClassName(constants.CLASS_TRACKLIST)[0];
