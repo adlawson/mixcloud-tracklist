@@ -15,5 +15,6 @@ module.exports = {
 
     QUERY_CONTAINER: '[ng-controller="CloudcastHeaderCtrl"]',
     QUERY_HIDE: '[ng-show="tracklistShown"]',
+    QUERY_MAIN: '[m-contents="maincontent"]',
     QUERY_SHOW: '[ng-show="!tracklistShown"]'
 };

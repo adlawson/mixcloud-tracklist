@@ -7,16 +7,28 @@
  * file that was distributed with this source code.
  */
 
-/* globals chrome, clearInterval, document, require, window, Array */
+/* globals chrome, clearInterval, document, require, window, Array, MutationObserver */
 
 var constants = require('../../src/constants');
 var fetch = require('../../src/fetch');
 var render = require('../../src/template');
 
-function documentReady(fn) {
+function onDocumentChange(container, fn) {
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.addedNodes.length > 0) {
+                fn();
+            }
+        });
+    });
+    observer.observe(container, {childList:true});
+}
+
+function onDocumentReady(fn) {
     chrome.extension.sendMessage({}, function (response) {
         document.addEventListener('DOMContentLoaded', function () {
             fn();
+            onDocumentChange(document.querySelectorAll(constants.QUERY_MAIN)[0], fn);
         });
     });
 }
@@ -35,7 +47,7 @@ function toggleTracklist(toggle, tracklist) {
     });
 }
 
-documentReady(function () {
+onDocumentReady(function () {
     fetch(window.location.pathname, function (data) {
         if (data.sections.length > 0) {
             var html = render(data);
