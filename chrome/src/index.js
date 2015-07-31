@@ -15,12 +15,9 @@ var render = require('../../src/template');
 
 function documentReady(fn) {
     chrome.extension.sendMessage({}, function (response) {
-        var readyStateCheckInterval = setInterval(function () {
-            if (document.readyState === 'complete') {
-                clearInterval(readyStateCheckInterval);
-                fn();
-            }
-        }, 10);
+        document.addEventListener('DOMContentLoaded', function () {
+            fn();
+        });
     });
 }
 
