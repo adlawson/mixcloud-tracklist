@@ -1,0 +1,23 @@
+{
+    "name": "Mixcloud Tracklist",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "Displays a tracklist on Mixcloud Cloudcast pages",
+    "homepage_url": "https://github.com/adlawson/ext-mixcloud",
+    "icons": {
+        "16": "img/icon-16.png",
+        "48": "img/icon-48.png",
+        "128": "img/icon-128.png"
+    },
+    "permissions": [
+        "https://www.mixcloud.com/*",
+        "https://mixcloud.com/*"
+    ],
+    "content_scripts": [
+        {
+            "js": ["build/chrome.min.js"],
+            "matches": ["*://www.mixcloud.com/*/*", "*://mixcloud.com/*/*"],
+            "run_at": "document_start"
+        }
+    ]
+}
