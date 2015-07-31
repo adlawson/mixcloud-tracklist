@@ -1,7 +1,11 @@
 # Mixcloud Tracklist browser extension
 
-This is an *Unofficial* browser extension for Mixcloud. It displays the
-tracklist the same way it did before they changed their licensing.
+This is an **Unofficial** browser extension for Mixcloud. It displays the
+tracklist the same way it did before they changed their licensing. For many of
+us, the tracklist was one of the best features of Mixcloud, and I feel lost
+without it.
+
+![Screenshot](screenshot.png)
 
 See http://support.mixcloud.com/customer/portal/articles/1595557 for the
 official reason behind the recent change.
@@ -11,9 +15,14 @@ official reason behind the recent change.
 >
 > Last Updated: Jul 28, 2015 05:20PM IST
 
-![Screenshot](screenshot.png)
+Thanks to [Perry Harlock](https://github.com/perryharlock) for helping me figure
+out the HTML template structure.
+
+## Help Wanted!
+This extension currently supports Google Chrome (tested on 44.0.2403.125
+(64-bit)) but should be able to support other browsers with a bit of work.
 
 ## License
 The content of this library is released under the **MIT License** by
 **Andrew Lawson**.<br/> You can find a copy of this license in
-[`LICENSE`][license] or at http://opensource.org/licenses/mit.
+[`LICENSE`](LICENSE) or at http://opensource.org/licenses/mit.
