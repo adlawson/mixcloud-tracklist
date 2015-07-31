@@ -5,6 +5,10 @@ tracklist the same way it did before they changed their licensing. For many of
 us, the tracklist was one of the best features of Mixcloud, and I feel lost
 without it.
 
+## Install
+ - [Chrome extensions web store](https://chrome.google.com/webstore/detail/mixcloud-tracklist/lkoingeajallinlnijfpmmddoeoficef)
+ - [Chrome developer mode](https://github.com/adlawson/ext-mixcloud/wiki/Chrome-development)
+
 ![Screenshot](screenshot.png)
 
 See http://support.mixcloud.com/customer/portal/articles/1595557 for the
