@@ -12,6 +12,7 @@
 var constants = require('../../src/constants');
 var fetch = require('../../src/fetch');
 var render = require('../../src/template');
+var decorator = require('../../src/decorator');
 
 function onDocumentChange(container, fn) {
     var observer = new MutationObserver(function (mutations) {
@@ -64,4 +65,20 @@ onDocumentReady(function () {
             toggleTracklist(toggleButton, tracklistContainer);
         }
     });
+});
+
+//Inject wrapper for Mixcloud's async request service
+//In try/catch block, because we have to rely on Mixcloud's
+//page structure to inject at the correct position
+//and Mixcloud changing it should not break the entire
+//extension
+onDocumentReady(function () {
+    try {
+        var script = document.createElement('script');
+        script.setAttribute('type', 'text/javascript');
+        script.textContent = '(' + decorator + ')()';
+        
+        document.body.insertBefore(script, document.body.querySelector('script[type="text/x-js-state"]'));
+    } catch (e) {
+    }
 });
