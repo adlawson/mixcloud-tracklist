@@ -7,16 +7,23 @@
         "mustache": "2.1.3"
     },
     "devDependencies": {
-        "browserify": "11.0.0"
+        "browserify": "11.0.0",
+        "jpm": "1.0.1"
     },
     "scripts": {
-        "build": "npm run build-chrome",
+        "build": "npm run build-chrome && npm run build-firefox",
         "build-chrome": "node_modules/.bin/browserify chrome/index.js > chrome/ext-mixcloud.js",
+        "build-firefox": "node_modules/.bin/browserify --ignore-missing firefox/content.js > firefox/data/ext-mixcloud.js",
 
-        "dist": "npm run dist-dir && npm run dist-chrome",
+        "dist": "npm run dist-dir && npm run dist-chrome && npm run dist-firefox",
         "dist-dir": "mkdir -p dist",
         "dist-chrome": "npm run dist-chrome-crx && npm run dist-chrome-zip",
         "dist-chrome-crx": "mv chrome.crx chrome/chrome.crx",
-        "dist-chrome-zip": "zip -r dist/chrome.zip chrome"
+        "dist-chrome-zip": "zip -r dist/chrome.zip chrome && rm chrome/chrome.crx",
+        "dist-firefox": "npm run dist-firefox-xpi && npm run dist-firefox-mv",
+        "dist-firefox-mv": "mv firefox/firefox.xpi dist/firefox.xpi",
+        "dist-firefox-xpi": "cd firefox && ../node_modules/.bin/jpm xpi && mv @*.xpi firefox.xpi",
+
+        "firefox": "cd firefox && ../node_modules/.bin/jpm run --binary-args '-url \"www.mixcloud.com\"'"
     }
 }
