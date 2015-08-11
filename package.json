@@ -3,17 +3,20 @@
     "version": "1.1.0",
     "description": "Display the tracklist on Mixcloud Cloudcast pages",
     "private": true,
-    "main": "src/index.js",
     "dependencies": {
         "mustache": "2.1.3"
     },
     "devDependencies": {
-        "browserify": "11.0.0",
-        "uglifyjs": "2.4.10"
+        "browserify": "11.0.0"
     },
     "scripts": {
-        "build": "npm run build-dir && npm run build-chrome",
-        "build-dir": "mkdir -p chrome/build",
-        "build-chrome": "node_modules/.bin/browserify chrome/src/index.js | node_modules/.bin/uglifyjs -mc > chrome/build/chrome.min.js"
+        "build": "npm run build-chrome",
+        "build-chrome": "node_modules/.bin/browserify chrome/index.js > chrome/ext-mixcloud.js",
+
+        "dist": "npm run dist-dir && npm run dist-chrome",
+        "dist-dir": "mkdir -p dist",
+        "dist-chrome": "npm run dist-chrome-crx && npm run dist-chrome-zip",
+        "dist-chrome-crx": "mv chrome.crx chrome/chrome.crx",
+        "dist-chrome-zip": "zip -r dist/chrome.zip chrome"
     }
 }

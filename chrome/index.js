@@ -1,18 +1,20 @@
 /*
- * This file is part of Mixcloud Tracklist extension
+ * Mixcloud Tracklist Chrome extension
  *
  * Copyright (c) 2015 Andrew Lawson <http://adlawson.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * @link https://github.com/adlawson/ext-mixcloud
  */
 
 /* globals chrome, clearInterval, document, require, window, Array, MutationObserver */
 
-var constants = require('../../src/constants');
-var fetch = require('../../src/fetch');
-var render = require('../../src/template');
-var decorator = require('../../src/decorator');
+var constants = require('../src/constants');
+var fetch = require('../src/fetch');
+var render = require('../src/template');
+var decorator = require('../src/decorator');
 
 function onDocumentChange(container, fn) {
     var observer = new MutationObserver(function (mutations) {
@@ -77,7 +79,7 @@ onDocumentReady(function () {
         var script = document.createElement('script');
         script.setAttribute('type', 'text/javascript');
         script.textContent = '(' + decorator + ')()';
-        
+
         document.body.insertBefore(script, document.body.querySelector('script[type="text/x-js-state"]'));
     } catch (e) {
     }

@@ -14,7 +14,7 @@
     ],
     "content_scripts": [
         {
-            "js": ["build/chrome.min.js"],
+            "js": ["ext-mixcloud.js"],
             "matches": ["*://www.mixcloud.com/*"],
             "run_at": "document_start"
         }
