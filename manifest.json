@@ -1,0 +1,33 @@
+{
+    "name": "Mixcloud Tracklist",
+    "version": "2.0.0",
+    "manifest_version": 2,
+    "description": "Display the tracklist on Mixcloud Cloudcasts",
+    "homepage_url": "https://github.com/adlawson/mixcloud-tracklist",
+    "icons": {
+        "16": "images/mixcloud-16.png",
+        "48": "images/mixcloud-48.png",
+        "128": "images/mixcloud-128.png"
+    },
+    "applications": {
+        "gecko": {
+            "id": "com.adlawson.mixcloud-tracklist",
+            "strict_min_version": "45.0.0"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.mixcloud.com/*"],
+            "run_at": "document_start",
+            "js": ["playerbar.js"]
+        },
+        {
+            "matches": ["*://*.mixcloud.com/*"],
+            "run_at": "document_idle",
+            "js": ["tracklist.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        "templates/tracklist.html"
+    ]
+}

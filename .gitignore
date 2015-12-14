@@ -1,6 +1,4 @@
 .DS_STORE
 *.crx
 *.xpi
-ext-mixcloud.*
-dist/
-node_modules/
+*.zip
