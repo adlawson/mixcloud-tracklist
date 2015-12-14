@@ -11,7 +11,8 @@
     },
     "applications": {
         "gecko": {
-            "id": "mixcloud-tracklist@adlawson.com"
+            "id": "com.adlawson.mixcloud-tracklist",
+            "strict_min_version": "45.0.0"
         }
     },
     "content_scripts": [

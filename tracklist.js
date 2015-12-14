@@ -12,7 +12,7 @@
 'use strict';
 
 /* globals chrome, document, encodeURIComponent */
-/* globals JSON, MutationObserver, XMLHttpRequest */
+/* globals MutationObserver, XMLHttpRequest */
 
 (function main() {
     var debuggingEnabled = false;
@@ -27,7 +27,7 @@
         QUERY_SHOW: '[ng-show="!tracklistShown"]'
     };
 
-    fetchContent(url('templates/tracklist.html'), function (template) {
+    fetchContent(url('templates/tracklist.html'), 'text', function (template) {
         var init = function init() {
             withContainer(function (container) {
                 fetchTracklist(window.location.pathname, function (data) {
@@ -41,22 +41,23 @@
         onDocumentUpdate(init);
     });
 
-    function fetchContent(url, fn) {
+    function fetchContent(url, type, fn) {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function withContent() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 log('Data successfully read from ' + url);
-                fn(xhr.responseText);
+                fn(xhr.response);
             }
         }
         log('Reading data from ' + url);
+        xhr.responseType = type;
         xhr.open('GET', url, true);
         xhr.send(null);
     }
 
     function fetchJson(url, fn) {
-        fetchContent(url, function withJson(json) {
-            fn(JSON.parse(json));
+        fetchContent(url, 'json', function withJson(json) {
+            fn(json);
         });
     }
 
