@@ -39,9 +39,7 @@
     }
 
     function onDocumentReady(fn) {
-        chrome.extension.sendMessage({}, function (response) {
-            document.addEventListener('DOMContentLoaded', fn);
-        });
+        document.addEventListener('DOMContentLoaded', fn);
     }
 
     function playerbar() {
