@@ -28,14 +28,23 @@
         {% for section in sections %}
             <div class="track-row cf" ng-hide="juno.sections.length">
                 <div class="container">
-                    <div class="track-name" title="{{ section.title }}">
-                        <span class="track-number">{{ section.track_number }}.</span>
-                        <a class="track-song-name-link" href="{{ section.track_url }}">{{ section.title }}</a>
-                    </div>
-                    <div class="track-by">
-                        <span class="track-by-name">by</span>
-                        <a class="artist-name-link" href="{{ section.artist_url }}"><strong>{{ section.artist }}</strong></a>
-                    </div>
+                    {% if section.chapter %}
+                        <div class="track-name" title="{{ section.title }}">
+                            <span class="track-number">{{ section.track_number }}.</span>
+                            <span class="track-song-name-link" href="{{ section.track_url }}">{{ section.chapter }}</span>
+                        </div>
+                    {% else %}
+                        <div class="track-name" title="{{ section.title }}">
+                            <span class="track-number">{{ section.track_number }}.</span>
+                            <a class="track-song-name-link" href="{{ section.track_url }}">{{ section.title }}</a>
+                        </div>
+                    {% endif %}
+                    {% if section.artist %}
+                        <div class="track-by">
+                            <span class="track-by-name">by</span>
+                            <a class="artist-name-link" href="{{ section.artist_url }}"><strong>{{ section.artist }}</strong></a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             <!-- ngRepeat: section in juno.sections -->
