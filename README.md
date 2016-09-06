@@ -28,6 +28,6 @@ The content of this library is released under the **MIT License** by
 [`LICENSE`](LICENSE) or at http://opensource.org/licenses/mit.
 
 [chrome-install]: https://chrome.google.com/webstore/detail/mixcloud-tracklist/lkoingeajallinlnijfpmmddoeoficef
-[firefox-install]: https://addons.mozilla.org/en-US/firefox/addon/mixcloud-tracklist
+[firefox-install]: https://addons.mozilla.org/firefox/addon/mixcloud-tracklist
 [mc-support]: http://support.mixcloud.com/customer/portal/articles/1595557
 [moz-webext]: https://wiki.mozilla.org/WebExtensions
