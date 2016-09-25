@@ -16,6 +16,7 @@ browser that supports the WebExtension APIs.
 ## Install
  - [Chrome Web Store][chrome-install]
  - [Firefox Add-ons][firefox-install]
+ - [Tampermonkey Userscript][tampermonkey-install] (requires [Tampermonkey][tampermonkey])
 
 ![Screenshot](screenshot.png)
 
@@ -29,5 +30,7 @@ The content of this library is released under the **MIT License** by
 
 [chrome-install]: https://chrome.google.com/webstore/detail/mixcloud-tracklist/lkoingeajallinlnijfpmmddoeoficef
 [firefox-install]: https://addons.mozilla.org/firefox/addon/mixcloud-tracklist
+[tampermonkey-install]: https://gist.github.com/adlawson/147e22f20e6f1eeb75c8e37acc19c96c
 [mc-support]: http://support.mixcloud.com/customer/portal/articles/1595557
 [moz-webext]: https://wiki.mozilla.org/WebExtensions
+[tampermonkey]: https://tampermonkey.net/
