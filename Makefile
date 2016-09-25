@@ -6,8 +6,8 @@ xpi: mixcloud-tracklist.xpi
 .PHONY: zip
 zip: mixcloud-tracklist.zip
 
-mixcloud-tracklist.xpi:
+mixcloud-tracklist.xpi: $(FILES)
 	zip mixcloud-tracklist.xpi $(FILES)
 
-mixcloud-tracklist.zip:
+mixcloud-tracklist.zip: $(FILES)
 	zip mixcloud-tracklist.zip $(FILES)
