@@ -18,11 +18,6 @@
     "content_scripts": [
         {
             "matches": ["*://*.mixcloud.com/*"],
-            "run_at": "document_start",
-            "js": ["playerbar.js"]
-        },
-        {
-            "matches": ["*://*.mixcloud.com/*"],
             "run_at": "document_idle",
             "js": ["tracklist.js"]
         }

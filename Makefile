@@ -1,4 +1,4 @@
-FILES:=images/* templates/* playerbar.js tracklist.js manifest.json
+FILES:=images/* templates/* tracklist.js manifest.json
 
 .PHONY: xpi
 xpi: mixcloud-tracklist.xpi
