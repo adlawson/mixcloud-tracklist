@@ -2,7 +2,7 @@
 // @name         Mixcloud Tracklist
 // @namespace    mixcloud-tracklist@adlawson.com
 // @version      4.0.0
-// @description  Display mix tracklists on Mixcloud
+// @description  Display tracklists on Mixcloud
 // @author       Andrew Lawson
 // @homepage     https://github.com/adlawson/mixcloud-tracklist
 // @supportURL   https://github.com/adlawson/mixcloud-tracklist/issues

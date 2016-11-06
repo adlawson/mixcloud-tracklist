@@ -2,7 +2,7 @@
   "name": "mixcloud-tracklist",
   "version": "4.0.0",
   "private": true,
-  "description": "Display mix tracklists on Mixcloud",
+  "description": "Display tracklists on Mixcloud",
   "author": "Andrew Lawson",
   "repository": {
     "type": "git",

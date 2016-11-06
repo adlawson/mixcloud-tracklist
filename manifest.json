@@ -2,7 +2,7 @@
   "name": "Mixcloud Tracklist",
   "version": "4.0.0",
   "manifest_version": 2,
-  "description": "Display mix tracklists on Mixcloud",
+  "description": "Display tracklists on Mixcloud",
   "homepage_url": "https://github.com/adlawson/mixcloud-tracklist",
   "icons": {
     "16": "images/mixcloud-16.png",
