@@ -1,0 +1,14 @@
+// ==UserScript==
+// @name         Mixcloud Tracklist
+// @namespace    mixcloud-tracklist@adlawson.com
+// @version      4.0.0
+// @description  Display mix tracklists on Mixcloud
+// @author       Andrew Lawson
+// @homepage     https://github.com/adlawson/mixcloud-tracklist
+// @supportURL   https://github.com/adlawson/mixcloud-tracklist/issues
+// @updateURL    https://cdn.rawgit.com/adlawson/147e22f20e6f1eeb75c8e37acc19c96c/raw/mixcloud-tracklist.user.js
+// @icon         https://cdn.rawgit.com/adlawson/mixcloud-tracklist/master/images/mixcloud-48.png
+// @include      /^https?://.+\.mixcloud.com/.+$/
+// @run-at       document-idle
+// @grant        none
+// ==/UserScript==

@@ -12,7 +12,7 @@ PATH_BIN = ./node_modules/.bin
 
 # Make all
 # --------
-all: js xpi zip
+all: js xpi zip userscript
 
 .PHONY: clean
 clean:
@@ -30,6 +30,9 @@ xpi: build/mixcloud-tracklist.xpi
 .PHONY: zip
 zip: build/mixcloud-tracklist.zip
 
+.PHONY: userscript
+userscript: build/mixcloud-tracklist.user.js
+
 
 # Build targets
 # -------------
@@ -45,3 +48,8 @@ build/mixcloud-tracklist.xpi: build js $(SOURCE)
 
 build/mixcloud-tracklist.zip: build js $(SOURCE)
 	@zip build/mixcloud-tracklist.zip $(BUILD)
+
+build/mixcloud-tracklist.user.js: build js $(SOURCE)
+	@cat userscript.txt > build/mixcloud-tracklist.user.js
+	@echo '' >> build/mixcloud-tracklist.user.js
+	@cat build/mixcloud-tracklist.js >> build/mixcloud-tracklist.user.js
