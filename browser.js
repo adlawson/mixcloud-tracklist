@@ -29,7 +29,7 @@ function insertBefore(container, sibling, html) {
 }
 
 function onChange(element, fn) {
-    var observer = new MutationObserver(mutations => {
+    const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             if (mutation.addedNodes.length > 0) fn();
         });
