@@ -15,7 +15,8 @@ module.exports = {
     insert,
     insertBefore,
     onChange,
-    querySelector
+    querySelector,
+    replace
 }
 
 function insert(container, html) {
@@ -39,4 +40,10 @@ function onChange(element, fn) {
 
 function querySelector(query) {
     return document.querySelector(query);
+}
+
+function replace(container, old, html) {
+    const temp = document.createElement('div');
+    temp.insertAdjacentHTML('afterbegin', html);
+    container.replaceChild(temp.firstChild, old);
 }

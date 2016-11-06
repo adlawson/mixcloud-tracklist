@@ -25,8 +25,9 @@ function main() {
             const tracklistTemplate = require('./templates/tracklist')(dust); // Required by both new and legacy
             if (isLegacy()) {
                 render(require('./templates/legacy')(dust), data.cloudcast, html => {
-                    browser.insert(container, html);
-                    toggleEvents(container);
+                    const empty = container.querySelector('[ng-init]');
+                    browser.replace(container, empty, html);
+                    toggleEvents(container, container);
                 });
             } else {
                 const toggleContainer = browser.querySelector('footer.mz-actions');
@@ -35,7 +36,7 @@ function main() {
                     browser.insert(container, tracklistHtml);
                     render(require('./templates/toggle')(dust), {}, toggleHtml => {
                         browser.insertBefore(toggleContainer, moreButton, toggleHtml);
-                        toggleEvents(toggleContainer);
+                        toggleEvents(container, toggleContainer);
                     });
                 });
             }
@@ -76,9 +77,9 @@ function render(source, data, fn) {
     });
 }
 
-function toggleEvents(container) {
-    const button = browser.querySelector('.tracklist-toggle-text');
-    const tracklist = browser.querySelector('.cloudcast-tracklist');
+function toggleEvents(tracklistContainer, toggleContainer) {
+    const button = toggleContainer.querySelector('.tracklist-toggle-text');
+    const tracklist = tracklistContainer.querySelector('.cloudcast-tracklist');
     button.addEventListener('click', event => {
         const hide = button.querySelector('[ng-show="tracklistShown"]');
         const show = button.querySelector('[ng-show="!tracklistShown"]');

@@ -1,4 +1,4 @@
-<div ng-init="tracklistShown=false;audioLength={{ audio_length }};sectionStartTimes=[]">
+<div ng-init="tracklistShown=false;audioLength={audio_length};sectionStartTimes=[]">
     <div class="tracklist-toggle-container">
         <svg version="1.1" class="tracklist-toggle-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="160px" height="26px" viewBox="0 0 160 26" enable-background="new 0 0 160 26" xml:space="preserve">
             <switch>
