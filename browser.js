@@ -15,7 +15,7 @@ module.exports = {
     insert,
     insertBefore,
     onChange,
-    queryElement
+    querySelector
 }
 
 function insert(container, html) {
