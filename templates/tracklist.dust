@@ -1,4 +1,4 @@
-<div class="cloudcast-tracklist" ng-class="{'open':tracklistShown}" style="clear:both;">
+<div class="cloudcast-tracklist" ng-class="{'open':tracklistShown}" style="clear:both; position:relative; top:-42px;">
     {#sections}
         <div class="track-row cf" ng-hide="juno.sections.length">
             <div class="container">

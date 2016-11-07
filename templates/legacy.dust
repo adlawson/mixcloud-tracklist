@@ -1,4 +1,6 @@
 <div ng-init="tracklistShown=false;audioLength={audio_length};sectionStartTimes=[]">
+
+    <!-- Toggle -->
     <div class="tracklist-toggle-container">
         <svg version="1.1" class="tracklist-toggle-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="160px" height="26px" viewBox="0 0 160 26" enable-background="new 0 0 160 26" xml:space="preserve">
             <switch>
@@ -19,5 +21,31 @@
         </div>
     </div>
 
-    {>"templates/tracklist"/}
+    <!-- Tracklist -->
+    <div class="cloudcast-tracklist" ng-class="{'open':tracklistShown}">
+        {#sections}
+            <div class="track-row cf" ng-hide="juno.sections.length">
+                <div class="container">
+                    {?chapter}
+                        <div class="track-name" title="{title}">
+                            <span class="track-number">{track_number}.</span>
+                            <a class="track-song-name-link" href="{track_url}">{chapter}</span>
+                        </div>
+                    {:else}
+                        <div class="track-name" title="{title}">
+                            <span class="track-number">{track_number}.</span>
+                            <a class="track-song-name-link" href="{track_url}">{title}</a>
+                        </div>
+                    {/chapter}
+                    {?artist}
+                        <div class="track-by">
+                            <span class="track-by-name">by</span>
+                            <a class="artist-name-link" href="{artist_url}"><strong>{artist}</strong></a>
+                        </div>
+                    {/artist}
+                </div>
+            </div>
+        {/sections}
+    </div>
+
 </div>
