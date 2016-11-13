@@ -20,10 +20,10 @@ browser.onChange(browser.querySelector('[m-contents="maincontent"]'), main);
 
 function main() {
     const parent = browser.querySelector('[ng-controller="CloudcastHeaderCtrl"]');
-    const empty = parent.querySelector('[ng-init]');
     if (parent !== null) {
         fetchData(window.location, (data) => {
             const tracklistTemplate = require('./templates/tracklist')(dust); // Required by both new and legacy
+            const empty = parent.querySelector('[ng-init]');
             if (isLegacy()) {
                 render(require('./templates/legacy')(dust), data.cloudcast, html => {
                     browser.replace(parent, empty, html);
