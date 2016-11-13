@@ -19,24 +19,24 @@ main();
 browser.onChange(browser.querySelector('[m-contents="maincontent"]'), main);
 
 function main() {
-    const container = browser.querySelector('[ng-controller="CloudcastHeaderCtrl"]');
-    if (container !== null) {
+    const parent = browser.querySelector('[ng-controller="CloudcastHeaderCtrl"]');
+    const empty = parent.querySelector('[ng-init]');
+    if (parent !== null) {
         fetchData(window.location, (data) => {
             const tracklistTemplate = require('./templates/tracklist')(dust); // Required by both new and legacy
             if (isLegacy()) {
                 render(require('./templates/legacy')(dust), data.cloudcast, html => {
-                    const empty = container.querySelector('[ng-init]');
-                    browser.replace(container, empty, html);
-                    toggleEvents(container, container);
+                    browser.replace(parent, empty, html);
+                    toggleEvents(parent, parent);
                 });
             } else {
                 const toggleContainer = browser.querySelector('footer.mz-actions');
                 const moreButton = toggleContainer.querySelector('[ng-controller="DropdownCtrl"]');
                 render(tracklistTemplate, data.cloudcast, tracklistHtml => {
-                    browser.insert(container, tracklistHtml);
+                    browser.insert(empty, tracklistHtml);
                     render(require('./templates/toggle')(dust), {}, toggleHtml => {
                         browser.insertBefore(toggleContainer, moreButton, toggleHtml);
-                        toggleEvents(container, toggleContainer);
+                        toggleEvents(empty, toggleContainer);
                     });
                 });
             }
