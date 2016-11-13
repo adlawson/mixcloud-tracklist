@@ -41,7 +41,7 @@ build:
 
 build/mixcloud-tracklist.js: build $(SOURCE)
 	@$(PATH_BIN)/dustc templates/**/*.dust -s --cjs
-	@$(PATH_BIN)/browserify tracklist.js -t babelify -o build/mixcloud-tracklist.js -d
+	@$(PATH_BIN)/browserify tracklist.js -t babelify -o build/mixcloud-tracklist.js
 
 build/mixcloud-tracklist.xpi: build js $(SOURCE)
 	@zip build/mixcloud-tracklist.xpi $(BUILD)
