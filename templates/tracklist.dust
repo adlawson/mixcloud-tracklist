@@ -1,25 +1,16 @@
-<div class="cloudcast-tracklist" ng-class="{'open':tracklistShown}" style="clear:both; position:relative; top:-42px;">
-    {#sections}
-        <div class="track-row cf" ng-hide="juno.sections.length">
-            <div class="container">
-                {?chapter}
-                    <div class="track-name" title="{title}">
-                        <span class="track-number">{track_number}.</span>
-                        <a class="track-song-name-link" href="{track_url}">{chapter}</span>
-                    </div>
-                {:else}
-                    <div class="track-name" title="{title}">
-                        <span class="track-number">{track_number}.</span>
-                        <a class="track-song-name-link" href="{track_url}">{title}</a>
-                    </div>
-                {/chapter}
-                {?artist}
-                    <div class="track-by">
-                        <span class="track-by-name">by</span>
-                        <a class="artist-name-link" href="{artist_url}"><strong>{artist}</strong></a>
-                    </div>
-                {/artist}
-            </div>
+<div class="mz-tracklist-wrap cloudcast-tracklist hidden" ng-show="!tracklistShown">
+    <div class="mz-inner-container">
+        <div class="mz-content">
+            <h1>Tracklist</h1>
+            <ul class="mz-show-tracklist" ng-init="tracklistShown=false;audioLength={audio_length};sectionStartTimes=[]">
+                {#sections}
+                    <li ng-hide="juno.sections.length">
+                        <em>{track_number}</em>
+                        {?chapter}<b title="{chapter}">{chapter}</b>{:else}<b title="{title}">{title}</b>{/chapter}
+                        {?artist}<small> by <span>{artist}</span></small>{/artist}
+                    </li>
+                {/sections}
+            </ul>
         </div>
-    {/sections}
+    </div>
 </div>
