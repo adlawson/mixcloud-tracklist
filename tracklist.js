@@ -85,6 +85,8 @@ function toggleEvents(tracklistContainer, toggleContainer) {
         const show = button.querySelector('[ng-show="!tracklistShown"]');
         hide.classList.toggle('ng-hide');
         show.classList.toggle('ng-hide');
-        tracklist.classList.toggle('open');
+        button.classList.toggle('mz-btn-toggled');
+        tracklist.classList.toggle('open'); // Legacy support
+        tracklist.classList.toggle('hidden');
     });
 }
