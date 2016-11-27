@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Mixcloud Tracklist
 // @namespace    mixcloud-tracklist@adlawson.com
-// @version      4.1.0
+// @version      4.1.1
 // @description  Display tracklists on Mixcloud
 // @author       Andrew Lawson
 // @homepage     https://github.com/adlawson/mixcloud-tracklist
