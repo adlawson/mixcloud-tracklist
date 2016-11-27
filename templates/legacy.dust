@@ -22,7 +22,7 @@
     </div>
 
     <!-- Tracklist -->
-    <div class="cloudcast-tracklist" ng-class="{'open':tracklistShown}">
+    <div class="cloudcast-tracklist hidden" ng-class="{'open':tracklistShown}">
         {#sections}
             <div class="track-row cf" ng-hide="juno.sections.length">
                 <div class="container">
