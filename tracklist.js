@@ -32,13 +32,16 @@ function main() {
             } else {
                 const toggleContainer = browser.querySelector('footer.mz-actions');
                 const moreButton = toggleContainer.querySelector('[ng-controller="DropdownCtrl"]');
-                render(tracklistTemplate, data.cloudcast, tracklistHtml => {
-                    browser.insert(empty, tracklistHtml);
-                    render(require('./templates/toggle')(dust), {}, toggleHtml => {
-                        browser.insertBefore(toggleContainer, moreButton, toggleHtml);
-                        toggleEvents(empty, toggleContainer);
+                const existingButton = toggleContainer.querySelector('[m-click="tracklistShown=!tracklistShown"]');
+                if (existingButton === null) { // If looking at your own mix
+                    render(tracklistTemplate, data.cloudcast, tracklistHtml => {
+                        browser.insert(empty, tracklistHtml);
+                        render(require('./templates/toggle')(dust), {}, toggleHtml => {
+                            browser.insertBefore(toggleContainer, moreButton, toggleHtml);
+                            toggleEvents(empty, toggleContainer);
+                        });
                     });
-                });
+                }
             }
         });
     }
