@@ -51,7 +51,7 @@ function fetchData(location, fn) {
     request({
         "uri": "/player/details",
         "baseUrl": location.protocol + "//" + location.hostname,
-        "qs": { "key": encodeURIComponent(location.pathname) },
+        "qs": { "key": location.pathname },
         "json": true
     }, (error, response, data) => {
         if (!error && response.statusCode === 200 && data.cloudcast.sections.length > 0) {
