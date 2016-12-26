@@ -12,10 +12,10 @@
   "bugs": "https://github.com/adlawson/mixcloud-tracklist/issues",
   "license": "MIT",
   "engines": {
-  	"node": ">=6.9.0"
+    "node": ">=6.9.0"
   },
   "dependencies": {
-  	"dustjs-linkedin": "~2.7.0",
+    "dustjs-linkedin": "~2.7.0",
     "request": "~2.78"
   },
   "devDependencies": {
