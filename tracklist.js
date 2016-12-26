@@ -90,6 +90,6 @@ function toggleEvents(tracklistContainer, toggleContainer) {
         show.classList.toggle('ng-hide');
         button.classList.toggle('mz-btn-toggled');
         tracklist.classList.toggle('open'); // Legacy support
-        tracklist.classList.toggle('hidden');
+        tracklist.classList.toggle('ng-hide');
     });
 }

@@ -1,4 +1,4 @@
-<div class="mz-tracklist-wrap cloudcast-tracklist hidden" ng-show="!tracklistShown">
+<div class="mz-tracklist-wrap cloudcast-tracklist ng-hide" ng-show="!tracklistShown">
     <div class="mz-inner-container">
         <div class="mz-content">
             <h1>Tracklist</h1>
