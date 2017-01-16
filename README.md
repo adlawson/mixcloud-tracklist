@@ -2,8 +2,9 @@
 
 This is an *unofficial* Mixcloud browser extension. It displays the tracklist
 the same way it did before they changed their [licensing][mc-support].
-It supports both the old (~2013-2016) Mixcloud website and the new Mixcloud
-website (still in beta as of November 2016).
+It supports the new Mixcloud website, having come out of beta in January 2017.
+Support for the old (~2013-2016) Mixcloud website has been dropped as of
+version 4.2.0.
 
 The extension has been built with [Mozilla's WebExtensions API][moz-webext] so
 it should be compatible with Mozilla Firefox, Google Chrome, and any other

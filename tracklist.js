@@ -24,24 +24,17 @@ function main() {
         fetchData(window.location, (data) => {
             const tracklistTemplate = require('./templates/tracklist')(dust); // Required by both new and legacy
             const empty = parent.querySelector('[ng-init]');
-            if (isLegacy()) {
-                render(require('./templates/legacy')(dust), data.cloudcast, html => {
-                    browser.replace(parent, empty, html);
-                    toggleEvents(parent, parent);
-                });
-            } else {
-                const toggleContainer = browser.querySelector('footer.mz-actions');
-                const moreButton = toggleContainer.querySelector('[ng-controller="DropdownCtrl"]');
-                const existingButton = toggleContainer.querySelector('[m-click="tracklistShown=!tracklistShown"]');
-                if (existingButton === null) { // If looking at your own mix
-                    render(tracklistTemplate, data.cloudcast, tracklistHtml => {
-                        browser.insert(empty, tracklistHtml);
-                        render(require('./templates/toggle')(dust), {}, toggleHtml => {
-                            browser.insertBefore(toggleContainer, moreButton, toggleHtml);
-                            toggleEvents(empty, toggleContainer);
-                        });
+            const toggleContainer = browser.querySelector('footer.mz-actions');
+            const moreButton = toggleContainer.querySelector('[ng-controller="DropdownCtrl"]');
+            const existingButton = toggleContainer.querySelector('[m-click="tracklistShown=!tracklistShown"]');
+            if (existingButton === null) { // If looking at your own mix
+                render(tracklistTemplate, data.cloudcast, tracklistHtml => {
+                    browser.insert(empty, tracklistHtml);
+                    render(require('./templates/toggle')(dust), {}, toggleHtml => {
+                        browser.insertBefore(toggleContainer, moreButton, toggleHtml);
+                        toggleEvents(empty, toggleContainer);
                     });
-                }
+                });
             }
         });
     }
@@ -69,10 +62,6 @@ function insertTrackNumber(data) {
     return data;
 }
 
-function isLegacy() {
-    return browser.querySelector('.mz-site-wrapper') === null;
-}
-
 function render(source, data, fn) {
     dust.render(source, data, (error, html) => {
         if (!error) fn(html);
@@ -89,7 +78,6 @@ function toggleEvents(tracklistContainer, toggleContainer) {
         hide.classList.toggle('ng-hide');
         show.classList.toggle('ng-hide');
         button.classList.toggle('mz-btn-toggled');
-        tracklist.classList.toggle('open'); // Legacy support
         tracklist.classList.toggle('ng-hide');
     });
 }
