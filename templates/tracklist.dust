@@ -1,8 +1,8 @@
-<div class="mz-tracklist-wrap cloudcast-tracklist ng-hide" ng-show="!tracklistShown">
-    <div class="mz-inner-container">
-        <div class="mz-content">
+<div class="tracklist-wrap cloudcast-tracklist ng-hide" ng-show="!tracklistShown">
+    <div class="inner-container">
+        <div class="content">
             <h1>Tracklist</h1>
-            <ul class="mz-show-tracklist" ng-init="tracklistShown=false;audioLength={audio_length};sectionStartTimes=[]">
+            <ul class="show-tracklist" ng-init="tracklistShown=false;audioLength={audio_length};sectionStartTimes=[]">
                 {#sections}
                     <li ng-hide="juno.sections.length">
                         <em>{track_number}</em>

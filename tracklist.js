@@ -24,7 +24,7 @@ function main() {
         fetchData(window.location, (data) => {
             const tracklistTemplate = require('./templates/tracklist')(dust); // Required by both new and legacy
             const empty = parent.querySelector('[ng-init]');
-            const toggleContainer = browser.querySelector('footer.mz-actions');
+            const toggleContainer = browser.querySelector('footer.actions');
             const moreButton = toggleContainer.querySelector('[ng-controller="DropdownCtrl"]');
             const existingButton = toggleContainer.querySelector('[m-click="tracklistShown=!tracklistShown"]');
             if (existingButton === null) { // If looking at your own mix
@@ -77,7 +77,7 @@ function toggleEvents(tracklistContainer, toggleContainer) {
         const show = button.querySelector('[ng-show="!tracklistShown"]');
         hide.classList.toggle('ng-hide');
         show.classList.toggle('ng-hide');
-        button.classList.toggle('mz-btn-toggled');
+        button.classList.toggle('btn-toggled');
         tracklist.classList.toggle('ng-hide');
     });
 }
