@@ -48,11 +48,28 @@ function fetchData(location, fn) {
         "json": true
     }, (error, response, data) => {
         if (!error && response.statusCode === 200 && data.cloudcast.sections.length > 0) {
-            fn(insertTrackNumber(data));
+            chrome.storage.sync.get({
+              timestamp: false
+            }, (options) => {
+                fn(insertTimestamp(insertTrackNumber(data), options));
+            });
         } else {
             console.error(error);
         }
     });
+}
+
+function insertTimestamp(data, options) {
+    data.cloudcast.sections.forEach((section, i) => {
+        if (section.start_time !== null && options.timestamp === true) {
+            const minutes = Math.floor(section.start_time / 60);
+            const seconds = ("0" + section.start_time % 60).slice(-2);
+            section.timestamp = `${minutes}:${seconds}`;
+        } else {
+          section.timestamp = null;
+        }
+    });
+    return data;
 }
 
 function insertTrackNumber(data) {

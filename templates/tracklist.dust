@@ -5,7 +5,7 @@
             <ul class="show-tracklist" ng-init="tracklistShown=false;audioLength={audio_length};sectionStartTimes=[]">
                 {#sections}
                     <li ng-hide="juno.sections.length">
-                        <em>{track_number}</em>
+                        {?timestamp}<em style="width:40px;">{timestamp}</em>{:else}<em>{track_number}</em>{/timestamp}
                         {?chapter}<b title="{chapter}">{chapter}</b>{:else}<b title="{title}">{title}</b>{/chapter}
                         {?artist}<small> by <span>{artist}</span></small>{/artist}
                     </li>
