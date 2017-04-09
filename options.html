@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mixcloud Tracklist - Options</title>
+    <style>
+        .disabled {
+          color: #999;
+        }
+        .input-container {
+            padding: 5px;
+        }
+        label small {
+          display: block;
+          margin-left: 18px;
+          padding-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p></p>
+
+    <form>
+        <div class="input-container">
+            <label class="disabled">
+                <input type="checkbox" name="feature.core" checked disabled/>
+                <strong>Core tracklist functionality</strong>
+                <small>Replace the missing tracklist</small>
+            </label>
+        </div>
+        <div class="input-container">
+            <label>
+                <input type="checkbox" name="feature.timestamp" id="timestamp"/>
+                <strong>Track timestamps</strong>
+                <small>Display timings of each track, if available, in the tracklist</small>
+            </label>
+        </div>
+        <div class="input-container">
+            <button id="save">Save changes</button>
+        </div>
+    </form>
+
+    <script src="options.js"></script>
+</body>
+</html>
