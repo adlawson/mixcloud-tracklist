@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "dustjs-linkedin": "~2.7.0",
-    "request": "~2.78"
+    "promise-polyfill": "^6.0.2",
+    "url-polyfill": "^1.0.7",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.0.0",
