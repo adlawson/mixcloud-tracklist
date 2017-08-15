@@ -11,8 +11,11 @@
 
 'use strict';
 
+require('whatwg-fetch'); // Patches window.fetch
+require('url-polyfill'); // Patches window.URL
+
 const dust = require('dustjs-linkedin');
-const request = require('request');
+const Promise = require('promise-polyfill');
 const browser = require('./browser');
 
 main();
@@ -41,18 +44,30 @@ function main() {
 }
 
 function fetchData(location, fn) {
-    request({
-        "uri": "/player/details",
-        "baseUrl": location.protocol + "//" + location.hostname,
-        "qs": { "key": location.pathname },
-        "json": true
-    }, (error, response, data) => {
-        if (!error && response.statusCode === 200 && data.cloudcast.sections.length > 0) {
-            fn(insertTrackNumber(data));
-        } else {
-            console.error(error);
-        }
-    });
+  let url = new URL(`${location.protocol}//${location.hostname}/player/details/`);
+  url.searchParams.append('key', location.pathname);
+  fetch(url, { credentials: 'include' })
+    .then(rejectFailed)
+    .then(response => response.json())
+    .then(rejectEmpty)
+    .then(data => fn(insertTrackNumber(data)))
+    .catch(err => console.warn("Tracklist unavailable", err));
+}
+
+function rejectEmpty(data) {
+  if (data.cloudcast.sections.length > 0) {
+    return Promise.resolve(data);
+  } else {
+    return Promise.reject(new ReferenceError("No tracklist returned"));
+  }
+}
+
+function rejectFailed(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return Promise.resolve(response);
+  } else {
+    return Promise.reject(new Error(response.statusText));
+  }
 }
 
 function insertTrackNumber(data) {
