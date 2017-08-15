@@ -49,8 +49,17 @@ function fetchData(location, fn) {
   fetch(url, { credentials: 'include' })
     .then(rejectFailed)
     .then(response => response.json())
+    .then(rejectEmpty)
     .then(data => fn(insertTrackNumber(data)))
-    .catch(err => console.error('Request failed', err));
+    .catch(err => console.warn("Tracklist unavailable", err));
+}
+
+function rejectEmpty(data) {
+  if (data.cloudcast.sections.length > 0) {
+    return Promise.resolve(data);
+  } else {
+    return Promise.reject(new ReferenceError("No tracklist returned"));
+  }
 }
 
 function rejectFailed(response) {
